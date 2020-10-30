@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 15:25:40 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 15:25:43 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/10/30 18:21:26 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/10/30 18:21:32 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memset(void *b, int c, size_t len)
+int ft_isupper(int a)
 {
-	unsigned char *qwe;
-	size_t i;
-
-	qwe = (unsigned char*)b;
-	i = 0;
-	while (i < len)
-	{
-		qwe[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
+	if(a > 65 && a < 91)
+		return (1);
+	else
+		return (0);
 }

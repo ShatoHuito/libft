@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 15:25:40 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 15:25:43 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/10/30 19:07:18 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/10/30 19:11:02 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memset(void *b, int c, size_t len)
+char				*ft_strrev(char *str)
 {
-	unsigned char *qwe;
-	size_t i;
+	int				len;
+	int				i;
+	char			buff;
 
-	qwe = (unsigned char*)b;
+	len = 0;
 	i = 0;
-	while (i < len)
+	while (str[len] != '\0')
+		len++;
+	while (len - 1 > i)
 	{
-		qwe[i] = (unsigned char)c;
+		buff = str[i];
+		str[i] = str[len - 1];
+		str[len - 1] = buff;
+		len--;
 		i++;
 	}
-	return (b);
+	return (str);
 }

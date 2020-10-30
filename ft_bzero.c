@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 15:25:40 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 15:25:43 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/10/30 15:45:35 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/10/30 15:46:09 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memset(void *b, int c, size_t len)
+void bzero(void *b, size_t len)
 {
-	unsigned char *qwe;
-	size_t i;
-
-	qwe = (unsigned char*)b;
-	i = 0;
-	while (i < len)
+	char *p;
+	p = b;
+	while(len != 0)
 	{
-		qwe[i] = (unsigned char)c;
-		i++;
+		*p++ = '\0';
+		len--;
 	}
-	return (b);
 }

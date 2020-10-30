@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 15:25:40 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 15:25:43 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/10/30 18:11:14 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/10/30 18:13:55 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memset(void *b, int c, size_t len)
+int	ft_isspace(int a)
 {
-	unsigned char *qwe;
-	size_t i;
-
-	qwe = (unsigned char*)b;
-	i = 0;
-	while (i < len)
-	{
-		qwe[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
+	if (a == '\t' || a == '\n' || a == '\v'
+			|| a == '\f' || a == '\r' || a == ' ')
+		return (1);
+	else
+		return (0);
 }
