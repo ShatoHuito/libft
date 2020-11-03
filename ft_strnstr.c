@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 14:34:17 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/03 14:47:45 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/11/03 18:48:21 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/11/03 19:03:03 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *fstr, const char *nstr, size_t len)
 {
-	unsigned char *str1;
-	unsigned char *str2;
+	size_t p1;
+	size_t p2;
 
-	if (!dest && !src)
-		return (NULL);
-	str1 = (unsigned char*)dest;
-	str2 = (unsigned char*)src;
-	while (n--)
-		*(str1++) = *(str2++);
-	return (dest);
+	if (*nstr == '\0')
+		return ((char*)fstr);
+	p1 = 0;
+	while (fstr[p1] != '\0' && p1 < len)
+	{
+		if (fstr[p1] == nstr[0])
+		{
+			p2 = 1;
+			while (nstr[p2] != '\0' && p1 + p2 < len
+					&& fstr[p1 + p2] == nstr[p2])
+				p2++;
+			if (nstr[p2] == '\0')
+				return ((char*)&fstr[p1]);
+		}
+		p1++;
+	}
+	return (NULL);
 }

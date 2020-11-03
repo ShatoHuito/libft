@@ -6,13 +6,15 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:21:26 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 18:21:32 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/03 17:19:22 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int ft_isupper(int a)
 {
-	if(a > 65 && a < 91)
+	if(a >= 'A' && a <= 'Z')
 		return (1);
 	else
 		return (0);

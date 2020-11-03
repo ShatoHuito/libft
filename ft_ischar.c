@@ -6,9 +6,11 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:21:55 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 17:21:58 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/03 14:42:35 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int ft_ischar (char a, char b)
 {

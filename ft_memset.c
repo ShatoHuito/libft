@@ -6,14 +6,16 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:25:40 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/10/30 15:25:43 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/03 14:50:22 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memset(void *b, int c, size_t len)
+#include "libft.h"
+
+void		*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *qwe;
-	size_t i;
+	unsigned char	*qwe;
+	size_t			i;
 
 	qwe = (unsigned char*)b;
 	i = 0;
