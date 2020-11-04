@@ -6,7 +6,7 @@
 #    By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/03 14:09:30 by gbrittan          #+#    #+#              #
-#    Updated: 2020/11/03 19:51:16 by gbrittan         ###   ########.fr        #
+#    Updated: 2020/11/04 19:51:06 by gbrittan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 .PHONY: NAME GCC INCL CFLAGS SRC OBJ all clean fclean re
@@ -37,6 +37,13 @@ SRC 	= ft_toupper.c		\
 		 ft_isascii.c		\
 		 ft_isalpha.c		\
 		 ft_strnstr.c		\
+		 ft_strlcat.c		\
+		 ft_strlcpy.c		\
+		 ft_strchr.c		\
+		 ft_strrchr.c		\
+		 ft_memccpy.c		\
+		 ft_memchr.c		\
+		 ft_memmove.c		\
 
 OBJ		= $(SRC:.c=.o)
 

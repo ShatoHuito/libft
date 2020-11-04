@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/27 11:50:42 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/03 19:57:13 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/11/04 12:36:02 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/11/04 12:36:07 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t  ft_strlen(const char *str)
 {
-	size_t a;
+    size_t a;
 
-	a = 0;
-	while (*str++)
-		a++;
-	return (a);
+    a = 0;
+    while (*str++)
+        a++;
+    return (a);
 }
