@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 19:07:59 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/05 14:40:43 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/11/05 16:56:17 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/11/05 17:15:56 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t len)
+void ft_putendl_fd(char *s, int fd)
 {
-	size_t i;
-	size_t f;
-
-	i = 0;
-	f = 0;
-	while (dst[i] && i < len)
-		i++;
-	while (src[f] && (i + f + 1) < len)
+	if(s)
 	{
-		dst[i + f] = src[f];
-		f++;
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\0', fd);
 	}
-	if (i < len)
-		dst[i + f] = '\0';
-	return (i + ft_strlen(src));
+	else
+		return ;
 }

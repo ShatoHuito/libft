@@ -18,11 +18,17 @@ void    *ft_memcpy(void *dest, const void *src, size_t n);
 void        *ft_memset(void *b, int c, size_t len);
 void    ft_putchar_fd(char c, int fd);
 void *ft_memccpy(void *dst, const void *src, int c, size_t n);
+void *ft_calloc(size_t count, size_t size);
+void    ft_putstr_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
+void ft_putendl_fd(char *s, int fd);
 
 char                *ft_strrev(char *str);
 char    *ft_strnstr(const char *fstr, const char *nstr, size_t len);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
+char *ft_strdup(const char *s1);
+char *ft_strcpy(char *dst, const char *src);
 
 size_t  ft_strlen(const char *str);
 size_t  ft_strlcat(char *dst, const char *src, size_t len);
