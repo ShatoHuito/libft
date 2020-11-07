@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 14:55:02 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/07 17:54:46 by gbrittan         ###   ########.fr       */
+/*   Created: 2020/11/07 19:20:43 by gbrittan          #+#    #+#             */
+/*   Updated: 2020/11/07 19:56:01 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	size_t a;
-
-	a = ft_strlen(s) + 1;
-	while (a--)
-	{
-		if (*(s + a) == (unsigned char)c)
-			return ((char*)s + a);
-	}
-	return (NULL);
+	
 }

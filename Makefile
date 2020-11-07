@@ -6,7 +6,7 @@
 #    By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/03 14:09:30 by gbrittan          #+#    #+#              #
-#    Updated: 2020/11/05 17:15:58 by gbrittan         ###   ########.fr        #
+#    Updated: 2020/11/07 19:56:13 by gbrittan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 .PHONY: NAME GCC INCL CFLAGS SRC OBJ all clean fclean re
@@ -50,6 +50,7 @@ SRC 	= ft_toupper.c		\
 		 ft_putstr_fd.c		\
 		 ft_putnbr_fd.c		\
 		 ft_putendl_fd.c	\
+		 ft_strjoin.c		\
 
 OBJ		= $(SRC:.c=.o)
 
