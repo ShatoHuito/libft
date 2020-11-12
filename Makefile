@@ -6,7 +6,7 @@
 #    By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/03 14:09:30 by gbrittan          #+#    #+#              #
-#    Updated: 2020/11/11 18:19:20 by gbrittan         ###   ########.fr        #
+#    Updated: 2020/11/12 19:55:16 by gbrittan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 .PHONY: NAME GCC INCL CFLAGS SRC OBJ all clean fclean re
@@ -55,6 +55,7 @@ SRC 	= ft_toupper.c		\
 		 ft_strtrim.c		\
 		 ft_strmapi.c		\
 		 ft_itoa.c			\
+		 ft_split.c			\
 
 OBJ		= $(SRC:.c=.o)
 
