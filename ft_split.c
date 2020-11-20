@@ -6,73 +6,94 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 16:55:04 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/12 19:55:10 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/20 18:11:18 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int howdiscr(char const *s, int c)
+static int	hcol(char const *s, int c)
 {
 	int i;
 	int col;
 
 	i = 0;
-	col = 0;
-	while(s[i] != '\0')
+	col = 1;
+	while (s[i] != '\0')
 	{
-		i++;
-		if(s[i] == c && s[i + 1] != '\0' && s[i + 1] != c)
+		if (s[i] == c && s[i + 1] != '\0' && s[i + 1] != c)
 			col++;
+		i++;
 	}
 	return (col);
 }
 
-char *ft_wrns (char *news, int i, int slen)
+static char	*wrns(char const *news, int i, int slen)
 {
-	char *qw;
-	int ifl;
-	int a;
+	char	*str;
+	int		ifl;
+	int		a;
 
 	a = 0;
 	ifl = i - slen;
-	qw = (char *)malloc(slen + 1);
-	while(ifl != i)
+	str = (char *)malloc(slen);
+	if (str == NULL)
+		return (NULL);
+	while (ifl != i)
 	{
-		qw[a] = news[ifl];
+		str[a] = news[ifl];
 		a++;
 		ifl++;
 	}
-	qw[a] = '\0';
-	return (qw);
+	str[a] = '\0';
+	return (str);
 }
 
-
-
-
-char **ft_split(char const *s, char c)
+static void	frees(char ***str, int a)
 {
-	char **qw;
-	char *news;
+	while (a > 0)
+	{
+		a--;
+		free((*str)[a]);
+	}
+	free(*str);
+	*str = NULL;
+}
+
+static int	howi(char const *s, char c)
+{
 	int i;
-	int slen;
-	int a;
 
 	i = 0;
-	slen = 0;
+	if (s == NULL)
+		return (i);
+	while (s[i] == c && s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	char	**str;
+	int		i;
+	int		slen;
+	int		a;
+
+	i = howi(s, c);
 	a = 0;
-	news = ft_strtrim(s, &c);
-	if (!(qw = (char **)malloc(sizeof(char**) * howdiscr(news, c) + 1)))
+	if (s == NULL || !(str = (char **)malloc(sizeof(char**) * hcol(s, c) + 1)))
 		return (NULL);
-	while (news[i] != '\0')
+	while (s[i] != '\0')
 	{
-		while (news[++i] != c)
-			slen++;
-		qw[++a] = ft_wrns(news, i, slen);
 		slen = 0;
-		while (news[i] == c)
+		while (s[i] != c && s[i] != '\0')
+			++slen && ++i;
+		str[a] = wrns(s, i, slen);
+		if (str[a++] == NULL)
+			frees(&str, a - 1);
+		while (s[i] == c && s[i] != '\0')
 			i++;
 	}
-	qw[a] = NULL;
-	return (qw);
+	str[a] = NULL;
+	return (str);
 }
