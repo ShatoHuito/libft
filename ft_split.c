@@ -6,50 +6,46 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 16:55:04 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/20 18:11:18 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/22 16:30:50 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	hcol(char const *s, int c)
+static int	get_count(char const *s, int c)
 {
 	int i;
-	int col;
+	int count;
 
 	i = 0;
-	col = 1;
+	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && s[i + 1] != '\0' && s[i + 1] != c)
-			col++;
+		if (s[i] != c && (s[i + 1] == '\0' || s[i + 1] == c))
+			count++;
 		i++;
 	}
-	return (col);
+	return (count);
 }
 
-static char	*wrns(char const *news, int i, int slen)
+static char	*split_str(char const *s, int i, int s_len)
 {
 	char	*str;
 	int		ifl;
-	int		a;
+	int		j;
 
-	a = 0;
-	ifl = i - slen;
-	str = (char *)malloc(slen);
+	j = 0;
+	ifl = i - s_len;
+	str = (char *)malloc(s_len + 1);
 	if (str == NULL)
 		return (NULL);
 	while (ifl != i)
-	{
-		str[a] = news[ifl];
-		a++;
-		ifl++;
-	}
-	str[a] = '\0';
+		str[j++] = s[ifl++];
+	str[j] = '\0';
 	return (str);
 }
 
-static void	frees(char ***str, int a)
+static void	free_all(char ***str, int a)
 {
 	while (a > 0)
 	{
@@ -60,7 +56,7 @@ static void	frees(char ***str, int a)
 	*str = NULL;
 }
 
-static int	howi(char const *s, char c)
+static int	get_i(char const *s, char c)
 {
 	int i;
 
@@ -76,24 +72,25 @@ char		**ft_split(char const *s, char c)
 {
 	char	**str;
 	int		i;
-	int		slen;
-	int		a;
+	int		s_len;
+	int		j;
 
-	i = howi(s, c);
-	a = 0;
-	if (s == NULL || !(str = (char **)malloc(sizeof(char**) * hcol(s, c) + 1)))
+	i = get_i(s, c);
+	j = 0;
+	if (s == NULL || !(str = (char **)malloc(sizeof(char*)
+					* (get_count(s, c) + 1))))
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		slen = 0;
+		s_len = 0;
 		while (s[i] != c && s[i] != '\0')
-			++slen && ++i;
-		str[a] = wrns(s, i, slen);
-		if (str[a++] == NULL)
-			frees(&str, a - 1);
+			++s_len && ++i;
+		str[j] = split_str(s, i, s_len);
+		if (str[j++] == NULL)
+			free_all(&str, j - 1);
 		while (s[i] == c && s[i] != '\0')
 			i++;
 	}
-	str[a] = NULL;
+	str[j] = NULL;
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: gbrittan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 19:20:43 by gbrittan          #+#    #+#             */
-/*   Updated: 2020/11/20 15:47:42 by gbrittan         ###   ########.fr       */
+/*   Updated: 2020/11/22 16:57:45 by gbrittan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,27 @@ static char	*ret_onechar(char *str)
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	int			i;
-	int			iend;
-	int			istr;
+	int			end;
+	int			j;
 	char		*str;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	str = NULL;
 	i = 0;
-	istr = 0;
-	iend = ft_strlen(s1) - 1;
+	j = 0;
+	end = ft_strlen(s1) - 1;
 	while (check_set(s1[i], set) == 0)
 		i++;
-	while (check_set(s1[iend], set) == 0)
-		iend--;
-	if (i >= iend)
+	while (check_set(s1[end], set) == 0 && end > 0)
+		end--;
+	if (i >= end)
 		return (ret_onechar(str));
-	str = (char *)malloc(iend - i + 2);
+	str = (char *)malloc(end - i + 2);
 	if (str == NULL)
 		return (NULL);
-	while (i <= iend)
-		str[istr++] = s1[i++];
-	str[istr++] = '\0';
+	while (i <= end)
+		str[j++] = s1[i++];
+	str[j++] = '\0';
 	return (str);
 }
